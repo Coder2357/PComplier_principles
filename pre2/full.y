@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
+
 typedef struct {
     char name[40];
     double value;

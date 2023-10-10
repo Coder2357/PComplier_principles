@@ -73,6 +73,7 @@
 #include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
+
 typedef struct {
     char name[40];
     double value;
@@ -107,7 +108,7 @@ void addVariable(const char* name, double value) {
 }
 
 
-#line 111 "y.tab.c"
+#line 112 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -179,12 +180,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 41 "full.y"
+#line 42 "full.y"
 
     double num;           
     char* identifier;   
 
-#line 188 "y.tab.c"
+#line 189 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -608,8 +609,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    57,    57,    58,    59,    60,    63,    69,    70,    71,
-      72,    73,    74,    75,    76
+       0,    58,    58,    59,    60,    61,    64,    70,    71,    72,
+      73,    74,    75,    76,    77
 };
 #endif
 
@@ -1181,70 +1182,70 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* lines: lines expr ';'  */
-#line 57 "full.y"
+#line 58 "full.y"
                                { printf("%f\n", (yyvsp[-1].num)); }
-#line 1187 "y.tab.c"
+#line 1188 "y.tab.c"
     break;
 
   case 6: /* stmt: IDENTIFIER '=' expr  */
-#line 63 "full.y"
+#line 64 "full.y"
                                     { 
                     const char* identifier = (yyvsp[-2].identifier);
                     addVariable(identifier, (yyvsp[0].num));
                 }
-#line 1196 "y.tab.c"
+#line 1197 "y.tab.c"
     break;
 
   case 7: /* expr: expr ADD expr  */
-#line 69 "full.y"
+#line 70 "full.y"
                                 { (yyval.num) = (yyvsp[-2].num) + (yyvsp[0].num); }
-#line 1202 "y.tab.c"
+#line 1203 "y.tab.c"
     break;
 
   case 8: /* expr: expr MINUS expr  */
-#line 70 "full.y"
+#line 71 "full.y"
                                   { (yyval.num) = (yyvsp[-2].num) - (yyvsp[0].num); }
-#line 1208 "y.tab.c"
+#line 1209 "y.tab.c"
     break;
 
   case 9: /* expr: expr MUL expr  */
-#line 71 "full.y"
+#line 72 "full.y"
                                 { (yyval.num) = (yyvsp[-2].num) * (yyvsp[0].num); }
-#line 1214 "y.tab.c"
+#line 1215 "y.tab.c"
     break;
 
   case 10: /* expr: expr DIV expr  */
-#line 72 "full.y"
+#line 73 "full.y"
                                 { (yyval.num) = (yyvsp[-2].num) / (yyvsp[0].num); }
-#line 1220 "y.tab.c"
+#line 1221 "y.tab.c"
     break;
 
   case 11: /* expr: MINUS expr  */
-#line 73 "full.y"
+#line 74 "full.y"
                                           { (yyval.num) = -(yyvsp[0].num); }
-#line 1226 "y.tab.c"
+#line 1227 "y.tab.c"
     break;
 
   case 12: /* expr: LPAREN expr RPAREN  */
-#line 74 "full.y"
+#line 75 "full.y"
                                    { (yyval.num) = (yyvsp[-1].num); }
-#line 1232 "y.tab.c"
+#line 1233 "y.tab.c"
     break;
 
   case 13: /* expr: NUMBER  */
-#line 75 "full.y"
+#line 76 "full.y"
                         { (yyval.num) = (yyvsp[0].num); }
-#line 1238 "y.tab.c"
+#line 1239 "y.tab.c"
     break;
 
   case 14: /* expr: IDENTIFIER  */
-#line 76 "full.y"
+#line 77 "full.y"
                            { (yyval.num) = findVariable((yyvsp[0].identifier)); }
-#line 1244 "y.tab.c"
+#line 1245 "y.tab.c"
     break;
 
 
-#line 1248 "y.tab.c"
+#line 1249 "y.tab.c"
 
       default: break;
     }
@@ -1437,7 +1438,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 78 "full.y"
+#line 79 "full.y"
 
 
 int yylex() {
