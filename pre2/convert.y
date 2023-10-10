@@ -9,7 +9,6 @@ YACC file
 #include<stdio.h>
 #include<stdlib.h>
 #include<ctype.h>
-#include<string.h> // Added for string manipulation
 #ifndef YYSTYPE
 #define YYSTYPE double
 #endif
@@ -19,7 +18,6 @@ FILE* yyin;
 void yyerror(const char* s);
 %}
 
-//TODO:给每个符号定义一个单词类别
 %token ADD MINUS MUL DIV LPAREN RPAREN
 %token NUMBER
 %left ADD MINUS
